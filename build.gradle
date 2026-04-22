@@ -3,9 +3,6 @@ plugins {
     id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_17
-targetCompatibility = JavaVersion.VERSION_17
-
 archivesBaseName = project.archives_base_name
 version = project.mod_version
 group = project.maven_group
@@ -22,14 +19,28 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+    withSourcesJar()
+}
+
 tasks.withType(JavaCompile).configureEach {
     it.options.release = 17
 }
 
-java {
-    withSourcesJar()
-}
-
 jar {
     from "LICENSE"
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+
+    repositories {
+        mavenLocal()
+    }
 }
