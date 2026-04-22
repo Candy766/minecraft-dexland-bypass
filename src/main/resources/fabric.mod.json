@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "command-scheduler",
+  "version": "1.0.0",
+  "name": "Command Scheduler",
+  "description": "A mod that automatically sends chat commands on a schedule",
+  "authors": ["Candy766"],
+  "contact": {
+    "homepage": "https://github.com/Candy766/minecraft-dexland-bypass",
+    "sources": "https://github.com/Candy766/minecraft-dexland-bypass"
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "main": ["com.example.yourmod.CommandSchedulerMod"]
+  },
+  "mixins": [],
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "fabric-api": "*",
+    "minecraft": "1.21.4"
+  }
+}
